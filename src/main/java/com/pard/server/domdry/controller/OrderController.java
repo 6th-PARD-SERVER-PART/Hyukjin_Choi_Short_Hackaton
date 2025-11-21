@@ -1,7 +1,8 @@
 package com.pard.server.domdry.controller;
 
-import com.pard.server.domdry.dto.MemberCreateRequest;
-import com.pard.server.domdry.service.MemberService;
+import com.pard.server.domdry.dto.CreateOrderRequest;
+import com.pard.server.domdry.dto.CreateOrderResponse;
+import com.pard.server.domdry.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api/orders")
 @RequiredArgsConstructor
-public class MemberController {
+public class OrderController {
 
-    private final MemberService memberService;
+    private final OrderService orderService;
 
-    @PostMapping("/member")
-    public ResponseEntity<Void> create(@RequestBody MemberCreateRequest request) {
-        memberService.create(request);
-        return ResponseEntity.ok().build();
+    @PostMapping
+    public ResponseEntity<CreateOrderResponse> createOrder(@RequestBody CreateOrderRequest request) {
+        return ResponseEntity.ok(orderService.createOrder(request));
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.pard.server.domdry.controller;
 
 import com.pard.server.domdry.dto.HomeResponse;
-import com.pard.server.domdry.dto.MemberCreateRequest;
 import com.pard.server.domdry.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

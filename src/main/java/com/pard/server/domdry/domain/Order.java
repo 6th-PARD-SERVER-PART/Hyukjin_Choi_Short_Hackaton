@@ -1,14 +1,12 @@
 package com.pard.server.domdry.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "orders")
 @Getter
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Order {
@@ -30,4 +28,16 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
+    public static Order of(Long memberId, Long laundryId, Long pickupSchedulePlaceId){
+        return Order.builder()
+                .memberId(memberId)
+                .laundryId(laundryId)
+                .pickupSchedulePlaceId(pickupSchedulePlaceId)
+                .status(OrderStatus.WAITING_PAYMENT)
+                .build();
+    }
+
+    public void markPaid(){
+        this.status = OrderStatus.PAID;
+    }
 }

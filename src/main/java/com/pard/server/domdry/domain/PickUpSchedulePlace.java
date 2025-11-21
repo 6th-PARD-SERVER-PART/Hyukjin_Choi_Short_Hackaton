@@ -32,6 +32,9 @@ public class PickUpSchedulePlace {
     private Integer currentOrders;
 
     public void increaseCurrentOrders() {
+        if (currentOrders == null) {
+            currentOrders = 0;
+        }
         this.currentOrders += 1;
     }
 
