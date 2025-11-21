@@ -10,15 +10,24 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class PickUpPlace {
+public class PickUpSchedulePlace {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String name;
+    private Long laundryId;
 
     @Column
-    private Dormitory dormitory;
+    private Long pickUpScheduleId;
+
+    @Column
+    private Long pickUpPlaceId;
+
+    @Column
+    private Integer maxOrders;
+
+    @Column
+    private Integer currentOrders;
 }
