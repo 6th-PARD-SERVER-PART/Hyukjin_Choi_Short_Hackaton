@@ -1,4 +1,4 @@
-package com.pard.server.domdry.controller;
+package com.pard.server.domdry.controller.user;
 
 import com.pard.server.domdry.dto.MemberCreateRequest;
 import com.pard.server.domdry.service.MemberService;

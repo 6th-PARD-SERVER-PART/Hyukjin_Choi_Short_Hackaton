@@ -1,4 +1,4 @@
-package com.pard.server.domdry.controller;
+package com.pard.server.domdry.controller.user;
 
 import com.pard.server.domdry.dto.CreateOrderRequest;
 import com.pard.server.domdry.dto.CreateOrderResponse;

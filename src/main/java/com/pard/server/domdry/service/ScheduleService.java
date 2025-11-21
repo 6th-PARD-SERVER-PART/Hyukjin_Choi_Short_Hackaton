@@ -22,10 +22,7 @@ public class ScheduleService {
 
     public List<ScheduleResponse> getAllSchedules() {
         return pickUpScheduleRepository.findAll().stream()
-                .map(s -> new ScheduleResponse(
-                        s.getId(),
-                        s.getPickUpTime()
-                )).toList();
+                .map(ScheduleResponse::from).toList();
     }
 
     public List<PlaceScheduleResponse> getPlacesBySchedule(Long scheduleId) {
